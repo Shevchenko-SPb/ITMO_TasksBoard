@@ -126,7 +126,6 @@
                 <div class="float-right"><span>Sort by</span>
                   <v-icon icon="expand_more" size="default"></v-icon>
                 </div>
-
               </v-col>
             </v-row>
             <v-row class="w-100% mx-0 my-3" style="border-bottom: 1px solid #E0E0E0"></v-row>
@@ -139,7 +138,6 @@
                 <div>
                   <div id="templateTask">
                     <v-card class="rounded-lg mb-3"
-
                             style="background-color: #f9fafb;">
                       <v-card-item>
                         <div>
@@ -200,3 +198,7 @@
     </v-row>
   </v-col>
 </template>
+
+<script>
+
+</script>

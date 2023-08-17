@@ -3,5 +3,24 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@invictus.codes/nuxt-vuetify'
-  ]
+  ],
+  vuetify: {
+    /* vuetify options */
+    vuetifyOptions: {
+      icons: {
+        // defaultSet: 'md'
+      }
+      // @TODO: list all vuetify options
+    },
+    moduleOptions: {
+      /* nuxt-vuetify module options */
+      // treeshaking: true,
+      useIconCDN: true,
+
+      /* vite-plugin-vuetify options */
+      // styles: 'none' ,
+      // autoImport: true,
+      // useVuetifyLabs: true ,
+    },
+  }
 })
