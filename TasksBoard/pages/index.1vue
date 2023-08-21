@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <h2>Home</h2>
+    <p>text content</p>
+  </div>
+
+</template>
+
+<script>
+export default {
+  name: "index"
+}
+</script>
+
+<style scoped>
+.lolo {
+  margin-left: 100px;
+}
+</style>
