@@ -1,11 +1,11 @@
 <template>
-<!--  <v-col-->
-<!--      id="popupContainer"-->
-<!--      class="h-screen"-->
-<!--      style="padding:0; margin:0; position: absolute; height: 100%"-->
-<!--  >-->
-<!--    <div class="spinner"></div>-->
-<!--  </v-col>-->
+  <v-col
+      id="popupContainer"
+      class="h-screen"
+      style="padding:0; margin:0; position: absolute; height: 100%"
+  >
+    <div class="spinner"></div>
+  </v-col>
 
   <v-col style="background-color: #e5fcf7; background-size: 100%" >
     <v-row class="d-flex flex-row rounded-xl mx-4 my-4 h-100"
@@ -115,7 +115,7 @@
                 </v-row>
                 <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
                 <div>
-                  <v-btn @click="keelItWithFire" color="#f9fafb" id="btnAddTask" class="w-100 mb-3">Add task</v-btn>
+                  <v-btn @click="addNewTask" color="#f9fafb" id="btnAddTask" class="w-100 mb-3">Add task</v-btn>
                   <div id="templateTask">
                     <TaskCard />
                   </div>
@@ -134,12 +134,13 @@
 </template>
 
 <script>
-import {main} from "~/composable/main";
+import {main} from "assets/js/main";
+import {TaskPopup} from "assets/js/TaskPopup";
 
 export default {
   methods: {
-    keelItWithFire() {
-     main()
+    addNewTask(e) {
+     main(e)
     }
   }
 };
