@@ -41,73 +41,66 @@ export class TaskPopup {
   render() {
     const div = document.createElement('div');
     div.innerHTML = `
-      <div data-test-id="task-popup" class="flex flex-col relative min-w-[377px] bg-white p-6 rounded-2xl gap-y-4">
-        <button class="absolute  right-4" data-id="btnClose"> <i class="block text-neutral-400 hover:text-neutral-800 text-2xl"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="currentColor" d="M3 16.74L7.76 12L3 7.26L7.26 3L12 7.76L16.74 3L21 7.26L16.24 12L21 16.74L16.74 21L12 16.24L7.26 21L3 16.74m9-3.33l4.74 4.75l1.42-1.42L13.41 12l4.75-4.74l-1.42-1.42L12 10.59L7.26 5.84L5.84 7.26L10.59 12l-4.75 4.74l1.42 1.42L12 13.41Z"/></svg></i> </button>
-        <div class="flex flex-row">
-          <span class="text-xl font-bold">${this.#title}</span>
-        </div>
-        <div class="flex flex-row">
-          <div class="flex flex-col w-full">
-            <label class="ml-1 text-sm text-neutral-600" for="inpDate">Title: </label>
-            <input
-              class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200"
-              data-id="inpTitle"
-              type="text"
-              value="${this.#taskTitle}"
-              placeholder="Title"
-            />
-          </div> 
-        </div>
-      
-          <div class="flex flex-col w-full">
-            <label class="ml-1 text-sm text-neutral-600" for="inpDate">Description: </label>
-            <textarea
-              class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200"
-              data-id="inpBody"
-              type="text"
-              placeholder="Description"
-            >${this.#taskBody}</textarea>
-          </div> 
-         <div class="flex flex-row">
-          <div class="flex flex-col w-full">
-            <label for="countries" class="ml-1 text-sm text-neutral-600">Deadline:</label>
-            <input data-id="inpDate" value="${this.#taskDate}" class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200 focus:border-none" type="date">
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <div class="flex flex-col w-full">
-            <label for="countries" class="ml-1 text-sm text-neutral-600">Select tag:</label>
-            <select
-              data-id="selectTag"
-              class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200 focus:border-none"  
-            >
-            <option>Choose a tag</option>
-              <option ${ (this.#taskTags=="Design") ? "selected" : "" } value="1">Design</option>
-              <option ${ (this.#taskTags=="Web") ? "selected" : "" } value="2">Web</option>
-              <option ${ (this.#taskTags=="Front") ? "selected" : "" } value="3">Front</option>
-              <option ${ (this.#taskTags=="Back") ? "selected" : "" } value="4">Back</option>
-            </select>
-          </div>
-        </div>
-        <div class="flex flex-row">
-          <div class="flex flex-col w-full">
-            <label for="countries" class="ml-1 text-sm text-neutral-600">Select priority:</label>
-            <select
-              data-id="inpPriority"
-              class="bg-neutral-100 p-1.5 rounded w-full border-1 border-neutral-200 focus:border-none"
-            >
-               <option>Priority choice</option>
-              <option ${ (this.#taskPriority=="1") ? "selected" : "" } value="1">High Priority</option>
-              <option ${ (this.#taskPriority=="2") ? "selected" : "" } value="2">Medium Priority</option>
-              <option ${ (this.#taskPriority=="3") ? "selected" : "" } value="3">Low Priority</option>
-              <option ${ (this.#taskPriority=="4") ? "selected" : "" } value="4">On Standby</option>
-            </select>
-          </div>
-        </div>
-        
-          <button data-id="btnConfirm" class="bg-teal-600 text-white p-2 rounded-lg w-full font-bold">${this.#confirmText}</button>
-       
+  <div data-test-id="task-popup" class="container">
+    <button class="btnClose" data-id="btnClose"> <i><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="currentColor" d="M3 16.74L7.76 12L3 7.26L7.26 3L12 7.76L16.74 3L21 7.26L16.24 12L21 16.74L16.74 21L12 16.24L7.26 21L3 16.74m9-3.33l4.74 4.75l1.42-1.42L13.41 12l4.75-4.74l-1.42-1.42L12 10.59L7.26 5.84L5.84 7.26L10.59 12l-4.75 4.74l1.42 1.42L12 13.41Z"/></svg></i> </button>
+    <div>
+      <span class="title">${this.#title}</span>
+    </div>
+    <div class="flex flex-row">
+      <div class="flex flex-col w-full">
+        <label>Title: </label>
+        <input
+            class="inpTitle"
+            data-id="inpTitle"
+            type="text"
+            value="${this.#taskTitle}"
+            placeholder="Title"
+        />
       </div>
+    </div>
+    <div>
+      <label>Description: </label>
+      <textarea
+          class="inpBody"
+          data-id="inpBody"
+          type="text"
+          placeholder="Description"
+      >${this.#taskBody}</textarea>
+    </div>
+    <div>
+      <div>
+        <label>Deadline:</label>
+        <input data-id="inpDate" value="${this.#taskDate}" class="inpDate" type="date">
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>Select tag:</label>
+        <select
+            data-id="selectTag"
+        >
+          <option>Choose a tag</option>
+          <option  value="1">Design</option>
+          <option value="2">Web</option>
+          <option value="3">Front</option>
+          <option  value="4">Back</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label>Select priority:</label>
+        <select data-id="inpPriority">
+          <option>Priority choice</option>
+          <option value="1">High Priority</option>
+          <option value="2">Medium Priority</option>
+          <option  value="3">Low Priority</option>
+          <option  value="4">On Standby</option>
+        </select>
+      </div>
+    </div>
+    <button data-id="btnConfirm" class="btnConfirm">${this.#confirmText}</button>
+</div>
     `;
     console.log('div.firstChild', div.children);
 

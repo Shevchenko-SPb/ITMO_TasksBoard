@@ -19,7 +19,7 @@
         </v-row>
         <div class="text-h6 my-3"
              data-id="templateTaskTitle">
-          Название задачи
+          $name
         </div>
       </div>
       <v-row class=" w-100% py-4 ps-4 align-center">

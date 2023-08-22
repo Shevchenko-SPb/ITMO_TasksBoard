@@ -5599,6 +5599,11 @@ type-fest@^2.11.2, type-fest@^2.13.0:
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-2.19.0.tgz#88068015bb33036a598b952e55e9311a60fd3a9b"
   integrity sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==
 
+type-fest@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.2.0.tgz#e259430307710e77721ecf6f545840acad72195f"
+  integrity sha512-5zknd7Dss75pMSED270A1RQS3KloqRJA9XbXLe0eCxyw7xXFb3rd+9B0UQ/0E+LQT6lnrLviEolYORlRWamn4w==
+
 ufo@^1.1.1, ufo@^1.1.2, ufo@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/ufo/-/ufo-1.2.0.tgz#28d127a087a46729133fdc89cb1358508b3f80ba"
@@ -5817,6 +5822,14 @@ validate-npm-package-name@^5.0.0:
   integrity sha512-YuKoXDAhBYxY7SfOKxHBDoSyENFeW5VvIIQp2TGQuit8gpK6MnWaQelBKxso72DoxTZfZdcP3W90LqpSkgPzLQ==
   dependencies:
     builtins "^5.0.0"
+
+vee-validate@^4.11.2:
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-4.11.2.tgz#f6b42776db0545af295f6428171cab12d0cafed9"
+  integrity sha512-tIWMCqMzX/GzCaIvlMg3/2ZFP5sVMjrZHIRIFIs9Wa/Y8gg7dnsYRj0Gp5a9X4C3tPfTJRctkFmb0J7/lR+h1w==
+  dependencies:
+    "@vue/devtools-api" "^6.5.0"
+    type-fest "^4.2.0"
 
 vite-node@^0.33.0:
   version "0.33.0"

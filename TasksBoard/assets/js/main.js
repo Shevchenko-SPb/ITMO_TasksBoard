@@ -1,8 +1,25 @@
 import DOM from './dom.js';
 const Tags = ['Web', 'Update', 'Design', 'Content'];
 export const main = (e) => {
+  class TaskVO {
+    static fromJSON(json) {
+      return new TaskVO(json.id, json.title, json.body, json.dt_end, json.tag, json.priority, json.id_status, json.id_dashboard);
+    }
+
+    constructor(id, title, body, date, tag, priority, status, dashboard) {
+      this.id = id;
+      this.title = title;
+      this.body = body;
+      this.dt_end = date;
+      this.tag = tag;
+      this.priority = priority;
+      this.id_status = status;
+      this.id_dashboard = dashboard;
+    }
+  }
 
   const getDOM = (id) => document.getElementById(id);
+  const domTemplateTask = getDOM(DOM.Template.TASK)
   const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
 
   templatePopupCreateTask (e)
@@ -27,8 +44,9 @@ export const main = (e) => {
 
         taskVO.id_status = idCol;
         taskVO.id_dashboard = idDash;
+        console.log("TaskVO ->", taskVO)
 
-        // renderTask(taskVO);
+        renderTask(taskVO);
         // saveTask(taskVO);
       }
     );
@@ -44,11 +62,11 @@ export const main = (e) => {
     const domPopupContainer = getDOM(DOM.Popup.CONTAINER);
     const domSpinner = domPopupContainer.querySelector('.spinner');
 
-    domPopupContainer.classList.remove('hidden');
+    domPopupContainer.style.visibility = null;
 
     const onClosePopup = () => {
       domPopupContainer.children[0].remove();
-      domPopupContainer.classList.add('hidden');
+      domPopupContainer.style.visibility = 'hidden';
     };
 
 
@@ -79,5 +97,24 @@ export const main = (e) => {
       }
     };
     domPopupContainer.append(taskPopupInstance.render());
+  }
+
+  function renderTask(taskVO) {
+
+    domTemplateTask.style.visibility = null;
+    const domTaskClone = domTemplateTask.cloneNode(true);
+    domTaskClone.setAttribute('id', taskVO.id)
+    domTaskClone.dataset.id = taskVO.id;
+
+    QUERY(domTaskClone, DOM.Template.Task.TITLE).innerText = taskVO.title;
+
+
+    if (getDOM(taskVO.id_status)) {
+      console.log('worked')
+      const targetCol = getDOM(taskVO.id_status)
+      targetCol.querySelector("div[data-box]").prepend(domTaskClone);
+    } else {
+      console.log('Колонки не существует')
+    }
   }
 }
