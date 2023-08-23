@@ -8,8 +8,8 @@
     <div class="spinner"></div>
   </v-col>
 
-  <v-col style="background-color: #e5fcf7; background-size: 100%;"  >
-    <v-row class="d-flex flex-row rounded-xl mx-4 my-4 h-100"
+  <v-col class="flex" style="background-color: #e5fcf7; background-size: 100%; height: 100%;  position: absolute;"  >
+    <v-row class="d-flex flex-row rounded-xl mx-4  mb-5 mt-4 h-100"
            style="background-color: #e5e9ec">
       <v-col class="rounded-xl w-25"
              style="background-color: #e5e9ec">
@@ -114,9 +114,9 @@
               </v-row>
             </v-row>
             <v-row class="w-100% mx-0 my-3" style="border-bottom: 1px solid #E0E0E0"></v-row>
-            <div id="dashboard">
-              <v-row id="dashboardTemplate" class=" v-row-auto"
-                     style="min-height: 600px">
+            <div id="dashboard" style="height: 100%">
+              <v-row id="dashboardTemplate" class=" v-row-auto "
+                     style="min-height: 800px">
                 <v-col id="cloneColumn" class="column rounded-lg ms-3"
                        data-test-id="tasks-column"
                        style="background-color: #e5e9ec; max-width: 320px; display: none">
@@ -162,6 +162,7 @@
 import {TaskPopup} from "assets/js/TaskPopup";
 import TaskPopupContainer from "~/components/TaskPopupContainer.vue";
 import {addNewDashboard} from "assets/js/createDashboard";
+import {main} from "assets/js/main";
 
 export default {
   components: {TaskPopupContainer},
