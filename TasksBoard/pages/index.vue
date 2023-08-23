@@ -37,10 +37,22 @@
             <v-spacer></v-spacer>
             <v-chip size="small" class="mr-5 bg-teal-darken-3">0</v-chip>
           </v-row>
-          <v-row class="align-center pb-2 text-grey-darken-2">
-           Name board
+          <v-row id="dashboardsList" class="align-center pb-2 text-grey-darken-2">
+            <div data-id="dashboardItem" style="display: none">
+              <button data-id="dashboardName">name</button>
+            </div>
           </v-row>
-          <v-btn icon="mdi-plus" size="x-small" class="align-center text-grey-darken-2 mb-6 mt-4">
+          <div id="dashboardInpName" style="display: none">
+            <input
+                data-id="inpTitle"
+                type="text"
+                placeholder="New dashboard"/>
+          </div>
+          <div id="btnSafeDashboard" style="display: none" >
+            <button data-id="confirm">Сохранить</button>
+            <button data-id="cancel">Отменить</button>
+          </div>
+          <v-btn @click="addNewDashboard" icon="mdi-plus" size="x-small" class="align-center text-grey-darken-2 mb-6 mt-4">
           </v-btn>
           <v-row class="w-100% me-4" style="border-bottom: 1px solid #BDBDBD"></v-row>
           <v-row class="font-weight-bold text-h6 pt-4">
@@ -84,7 +96,7 @@
                style="height: 100%;  background-color: #f9fafb">
           <v-col>
             <v-row class="w-100 align-center ">
-              <v-col class="font-weight-bold text-h6">Name board</v-col>
+              <v-col id="dashboardName" class="font-weight-bold text-h6">Name board</v-col>
               <v-row class="align-center ms-7 justify-end mr-3 " >
                 <v-icon icon="mdi-account-group-outline" color=teal-darken-2 size="x-large"></v-icon>
                 <div class="font-bold mx-3" >Groups</div>
@@ -102,27 +114,39 @@
               </v-row>
             </v-row>
             <v-row class="w-100% mx-0 my-3" style="border-bottom: 1px solid #E0E0E0"></v-row>
-            <v-row class="justify-space-between v-row-auto"
-                      style="min-height: 600px">
-              <v-col class="rounded-lg ms-3"
-                     data-test-id="tasks-column"
-                     style="background-color: #e5e9ec; max-width: 320px">
-                <v-row class="font-weight-bold text-h7 align-center">
-                  <v-col><span>Name column </span>
-                    <span class="text-grey-lighten-1">0</span></v-col>
-                  <v-row class="justify-end mr-3 text-grey-lighten-1">
-                    <v-icon>mdi-dots-vertical</v-icon>
+            <div id="dashboard">
+              <v-row id="dashboardTemplate" class=" v-row-auto"
+                     style="min-height: 600px">
+                <v-col id="cloneColumn" class="column rounded-lg ms-3"
+                       data-test-id="tasks-column"
+                       style="background-color: #e5e9ec; max-width: 320px; display: none">
+                  <v-row class="font-weight-bold text-h7 align-center">
+                    <v-col>
+                      <span data-id="columnNameTemp" style="display: none">In Progress </span>
+                      <input class="rounded-md"  data-id="columnNameInp" value="" placeholder="Name">
+                      <span class="text-gray-400">0</span>
+                    </v-col>
+                    <v-row class="justify-end mr-3 text-grey-lighten-1">
+                      <v-icon>mdi-dots-vertical</v-icon>
+                      <button data-id="btnAddColumn" style="display: none">
+                        <svg style="pointer-events: none" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                             viewBox="0 0 24 24">
+                          <path fill="currentColor"
+                                d="M18 13h-5v5c0 .55-.45 1-1 1s-1-.45-1-1v-5H6c-.55 0-1-.45-1-1s.45-1 1-1h5V6c0-.55.45-1 1-1s1 .45 1 1v5h5c.55 0 1 .45 1 1s-.45 1-1 1z"/>
+                        </svg>
+                      </button>
+                    </v-row>
                   </v-row>
-                </v-row>
-                <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
-                <div>
-                  <v-btn @click="addNewTask" color="#f9fafb" id="btnAddTask" class="w-100 mb-3">Add task</v-btn>
-                  <div id="templateTask" style="visibility: hidden">
-                    <TaskCard />
+                  <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
+                  <div>
+                    <v-btn @click="addNewTask" color="#f9fafb" id="btnAddTask" class="w-100 mb-3">Add task</v-btn>
+                    <div id="templateTask" style="visibility: hidden">
+                      <TaskCard/>
+                    </div>
                   </div>
-                </div>
-              </v-col>
-            </v-row>
+                </v-col>
+              </v-row>
+            </div>
           </v-col>
         </v-row>
         <v-row class="w-100 rounded-b-xl mt-4 align-center"
@@ -135,15 +159,18 @@
 </template>
 
 <script>
-import {main} from "assets/js/main";
 import {TaskPopup} from "assets/js/TaskPopup";
 import TaskPopupContainer from "~/components/TaskPopupContainer.vue";
+import {addNewDashboard} from "assets/js/createDashboard";
 
 export default {
   components: {TaskPopupContainer},
   methods: {
     addNewTask(e) {
      main(e)
+    },
+    addNewDashboard () {
+      addNewDashboard()
     }
   }
 };
