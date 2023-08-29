@@ -1,5 +1,8 @@
 import DOM from './dom.js';
 const Tags = ['Web', 'Update', 'Design', 'Content'];
+const headers = {
+  'Content-Type': 'application/json'
+}
 export const main = (e) => {
   class TaskVO {
     static fromJSON(json) {
@@ -98,7 +101,21 @@ export const main = (e) => {
     };
     domPopupContainer.append(taskPopupInstance.render());
   }
+  function getDashboards () {
+    axios.get('http://127.0.0.1:8007/getListdashboards', {
+      headers: headers
+    })
+      .then(function (response) {
+        console.log(response.request.responseURL)
+        console.log(response)
 
+      })
+      .catch(function (error) {
+      })
+      .finally(function () {
+      })
+  }
+  getDashboards ()
   function renderTask(taskVO) {
 
     domTemplateTask.style.visibility = null;
