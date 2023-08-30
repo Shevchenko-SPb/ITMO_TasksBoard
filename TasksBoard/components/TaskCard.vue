@@ -21,6 +21,9 @@
              data-id="templateTaskTitle">
           $name
         </div>
+        <div class="text-h6 my-3" data-id="templateTaskBody">
+          $body
+        </div>
       </div>
       <v-row class=" w-100% py-4 ps-4 align-center">
         <v-icon size="23">mdi-comment-outline</v-icon>

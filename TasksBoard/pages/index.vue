@@ -140,9 +140,11 @@
                   <v-row class="w-100% mx-0 mb-3" style="border-bottom: 1px solid #BDBDBD"></v-row>
                   <div>
                     <v-btn @click="addNewTask" color="#f9fafb" id="btnAddTask" class="w-100 mb-3">Add task</v-btn>
-                    <div id="templateTask" style="visibility: hidden">
+                    <div id="templateTask" style="display: none">
                       <TaskCard/>
                     </div>
+                  </div>
+                  <div data-box="true" >
                   </div>
                 </v-col>
               </v-row>
@@ -156,13 +158,17 @@
       </v-col>
     </v-row>
   </v-col>
+
 </template>
 
 <script>
+
+
 import {TaskPopup} from "assets/js/TaskPopup";
 import TaskPopupContainer from "~/components/TaskPopupContainer.vue";
 import {addNewDashboard} from "assets/js/createDashboard";
 import {main} from "assets/js/main";
+import {getDashboards} from "assets/js/getDashboard";
 
 export default {
   components: {TaskPopupContainer},
@@ -172,9 +178,13 @@ export default {
     },
     addNewDashboard () {
       addNewDashboard()
+    },
+    getDashboards () {
+      getDashboards()
     }
   }
 };
+getDashboards ()
 </script>
 
 <style>
