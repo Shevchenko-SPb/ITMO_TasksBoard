@@ -3,8 +3,6 @@ import {TaskVO} from "assets/js/TaskVO";
 import Dom from "assets/js/dom";
 import DOM from "assets/js/dom";
 
-
-
 export const getDashboards = () => {
   setTimeout(() => {
   const getDOM = (id) => document.getElementById(id);
@@ -15,8 +13,6 @@ export const getDashboards = () => {
   const domTemplateTask = getDOM(DOM.Template.TASK)
   const newDashboard = domDashboard.querySelector("div[id]").cloneNode(true);
   const clone = getDOM('cloneColumn')
-
-
 
   const headers = {
     'Content-Type': 'application/json'
@@ -42,8 +38,6 @@ export const getDashboards = () => {
 
             ? rawDashboards.map((json) => DashboardVO.fromJSON(json))
             : [];
-
-
           if (dashboards[0].id) {
 
             renderDashboard(dashboards[0].id) }

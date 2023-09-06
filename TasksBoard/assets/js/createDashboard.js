@@ -25,12 +25,9 @@ export const addNewDashboard = () => {
   if (!domSafeDashboard.style.display) {
     return
   }
-  domDashboardTemplate.removeAttribute('id');
-  domDashboardTemplate.remove();
-
-  // domDashboardList.classList.add('pointer-events-none')
-  // domDashboardList.classList.add('text-neutral-400/50')
-
+  const oldDash =  domDashboard.getElementsByClassName("v-row-auto")
+  oldDash[0].removeAttribute('id');
+  oldDash[0].remove();
 
   newDashboard.id = randomString(5) + Date.now();
   while (newDashboard.children.length > 0) {

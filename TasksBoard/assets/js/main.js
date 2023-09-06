@@ -6,10 +6,14 @@ const headers = {
 }
 
 export const main = (e) => {
+  console.log('click')
 
   const getDOM = (id) => document.getElementById(id);
   const domTemplateTask = getDOM(DOM.Template.TASK)
   const QUERY = (container, id) => container.querySelector(`[data-id="${id}"]`);
+  getDOM(DOM.Button.ADD_TASK).onclick = () => {
+    console.log('click')
+  }
 
   templatePopupCreateTask (e)
 
